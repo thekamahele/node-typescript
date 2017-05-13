@@ -1,2 +1,3 @@
-# node-typescript
-Basic Node Express server setup with Typescript
+# Node Typescript Starter
+
+Basic Node starter kit with Typescript configuration.

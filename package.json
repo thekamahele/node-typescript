@@ -1,0 +1,39 @@
+{
+  "name": "node-typescript",
+  "version": "1.0.0",
+  "description": "Basic Node Express server setup with Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekamahele/node-typescript.git"
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "server"
+  ],
+  "author": "Jira Vinyoopongphan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thekamahele/node-typescript/issues"
+  },
+  "homepage": "https://github.com/thekamahele/node-typescript#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^4.0.0",
+    "@types/express": "^4.0.35",
+    "@types/morgan": "^1.7.32",
+    "@types/node": "^7.0.18",
+    "nodemon": "^1.11.0",
+    "tslint": "^5.2.0",
+    "typescript": "^2.3.2"
+  }
+}
