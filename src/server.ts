@@ -1,21 +1,26 @@
-import { Express, Request, Response } from 'express';
-import logger from 'morgan';
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
+import * as express from 'express';
+import * as logger from 'morgan';
+import * as path from 'path';
+import * as cookieParser from 'cookie-parser';
+import * as bodyParser from 'body-parser';
 
-const app: Express = express();
+const app: express.Express = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', (req: Request, res: Response, next) => {
-    res.render('Hello World');
+app.get('/', (req, res, next) => {
+    res.render('index', { title: 'Node-Typescript-Server', message: 'HELLO THERE!'});
 });
 
 // catch 404 and forward to error handler
-app.use((req: Request, res: Response, next) => {
+app.use((req, res, next) => {
     const err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -26,7 +31,7 @@ app.use((req: Request, res: Response, next) => {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use((err: any, req: Request, res: Response, next) => {
+    app.use((err: any, req, res, next) => {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -37,7 +42,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use((err: any, req: Request, res: Response, next) => {
+app.use((err: any, req, res, next) => {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
